@@ -9,8 +9,8 @@ module Prawn
       SCISSOR_WIDTH = 5.mm
       SCISSOR_HEIGHT = 3.mm
 
-      PAD_LEFT = 25.mm
-      PAD_TOP = 21.mm
+      PAD_LEFT = 5.mm
+      PAD_TOP = 1.mm
 
       attr_reader :doc, :receipt_width, :receipt_height
 
