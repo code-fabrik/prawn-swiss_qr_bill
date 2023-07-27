@@ -15,10 +15,8 @@ module Prawn
       def draw
         set_font
 
-        @doc.canvas do
-          Sections.draw_all(@doc, @data, @options)
-          CuttingLines.new(@doc).draw
-        end
+        Sections.draw_all(@doc, @data, @options)
+        CuttingLines.new(@doc).draw
       end
 
       private
