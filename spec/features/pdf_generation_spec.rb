@@ -11,7 +11,7 @@ describe 'PDF generation' do
   end
 
   before do
-    FileUtils.rm(outfile) if File.exist?(outfile)
+    FileUtils.rm_f(outfile)
   end
 
   after do |spec|
@@ -88,6 +88,30 @@ describe 'PDF generation' do
 
     it 'generates a correct pdf' do
       expect(reader_for_bill.pages.length).to eq(1)
+    end
+  end
+
+  context 'when currency is CHF' do
+    let(:bill_data) { DataManager.build_bill }
+
+    it 'generates a correct pdf' do
+      expect(reader_for_bill.pages[0].text).to include('CHF').twice
+    end
+  end
+
+  context 'when no currency' do
+    let(:bill_data) { DataManager.build_bill(:no_currency) }
+
+    it 'generates a correct pdf' do
+      expect(reader_for_bill.pages[0].text).to include('CHF').twice
+    end
+  end
+
+  context 'when currency is EUR' do
+    let(:bill_data) { DataManager.build_bill(:currency_eur) }
+
+    it 'generates a correct pdf' do
+      expect(reader_for_bill.pages[0].text).to include('EUR').twice
     end
   end
 end

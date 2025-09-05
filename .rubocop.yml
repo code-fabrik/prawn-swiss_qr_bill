@@ -5,6 +5,9 @@ require:
 AllCops:
   TargetRubyVersion: 2.5
   NewCops: enable
+  Exclude:
+    - prawn-swiss_qr_bill.gemspec
+    - vendor/bundle/**/*
 
 # Prawn is descriptive and needs more branches (methods)
 Metrics/AbcSize:
@@ -26,4 +29,3 @@ Metrics/BlockLength:
 Lint/AmbiguousBlockAssociation:
   Exclude:
     - 'spec/**/*'
-
