@@ -117,6 +117,7 @@ Available options:
 | Option | Data type | Description | Default |
 | --- | --- | --- | --- |
 | `validate` | boolean | Validates IBAN and Reference Number and raises several errors | `false` |
+| `use_document_margins` | boolean | Use the document margins instead of drawing over the full width | `false` |
 
 Errors which can be raised during validation:
 

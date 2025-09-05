@@ -15,8 +15,12 @@ module Prawn
       def draw
         set_font
 
-        Sections.draw_all(@doc, @data, @options)
-        CuttingLines.new(@doc).draw
+        content = -> {
+          Sections.draw_all(@doc, @data, @options)
+          CuttingLines.new(@doc).draw
+        }
+
+        @options[:use_document_bounds] ? content.call : @doc.canvas(&content)
       end
 
       private
